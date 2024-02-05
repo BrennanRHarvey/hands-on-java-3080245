@@ -1,5 +1,7 @@
 package bank;
 
+import bank.exceptions.AmountException;
+
 public class Account {
 
   private int id;
@@ -13,11 +15,19 @@ public class Account {
     setBalance(balance);
   }
 
-  public void deposit(double amount) {
+  public void deposit(double amount) throws AmountException {
+    if (amount <= 0) {
+      throw new AmountException("The deposit must be greater than $0.00");
+    } else {
+      double newBalance = balance + amount;
+      setBalance(newBalance);
+      DataSource.updateAccountBalance(id, newBalance);
+    }
+
 
   }
 
-  public void withdraw(double amount) {
+  public void withdraw(double amount) throws AmountException {
 
   }
 
