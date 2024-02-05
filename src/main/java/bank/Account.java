@@ -13,6 +13,14 @@ public class Account {
     setBalance(balance);
   }
 
+  public void deposit(double amount) {
+
+  }
+
+  public void withdraw(double amount) {
+
+  }
+
   // BEGIN auto-generated setters and getters
   public int getId() {
     return this.id;
